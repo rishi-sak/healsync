@@ -1,301 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Add Medicine - HealSync</title>
-  <!--<link rel="stylesheet" href="styles.css"> Reuse dashboard styles -->
-  <style>
-  /* General Reset */
-  * {
-    box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
-  }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Medicine - HealSync</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="add-medicine-page">
+    <div class="container">
+      <a href="dashboard" class="back-link">← Back to Dashboard</a>
+      <h2>Add Medicine</h2>
+      <form action="AddMedicine" method="post">
+        <label for="medicineName">Medicine Name</label>
+        <input
+          type="text"
+          id="medicineName"
+          name="medicineName"
+          placeholder="Add your Medicine Name"
+        />
 
-  body {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #e6f0ff, #f8faff);
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-  }
+        <label for="startDate">Start Date</label>
+        <input type="date" id="startDate" name="startDate" required />
 
-  .container {
-    width: 90%;
-    max-width: 500px;
-    background: #ffffff;
-    margin-top: 60px;
-    padding: 30px 25px;
-    border-radius: 14px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 0.5s ease-in-out;
-  }
+        <label for="endDate">End Date</label>
+        <input type="date" id="endDate" name="endDate" required />
 
-  h2 {
-    text-align: center;
-    color: #1e2a55;
-    margin-bottom: 25px;
-    font-weight: 600;
-  }
+        <label for="dosageCount">Number of Dosages per Day</label>
+        <input
+          type="number"
+          id="dosageCount"
+          name="dosageCount"
+          placeholder="Dose Per Day"
+          min="1"
+          max="6"
+          required
+        />
 
-  label {
-    display: block;
-    margin: 12px 0 6px;
-    font-weight: 600;
-    color: #2f3b66;
-  }
-
-  input,
-  select,
-  textarea {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #c9d3e0;
-    background: #f8fbff;
-    outline: none;
-    font-size: 15px;
-  }
-
-  input:focus,
-  select:focus,
-  textarea:focus {
-    border-color: #4a6cf7;
-    background: #ffffff;
-    box-shadow: 0 0 5px rgba(74, 108, 247, 0.2);
-  }
-
-  button[type="submit"] {
-    background: linear-gradient(135deg, #4a6cf7, #0052cc);
-    color: white;
-    padding: 14px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px;
-    letter-spacing: 0.5px;
-  }
-
-  button[type="submit"]:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
-  }
-
-  .back-link {
-    display: inline-block;
-    margin-bottom: 20px;
-    color: #4a6cf7;
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
-  }
-
-  .back-link:hover {
-    color: #003d99;
-    text-decoration: underline;
-  }
-
-  /* Time field layout */
-  .time-field {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-  }
-
-  .time-field input[type="time"] {
-    flex: 1;
-    background: #f8fbff;
-  }
-
-  .add-btn,
-  .remove-btn {
-    border: none;
-    padding: 6px 12px;
-    font-size: 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-left: 8px;
-    font-weight: 500;
-    transition: 0.2s;
-  }
-
-  .add-btn {
-    background-color: #3dbb6d;
-    color: #fff;
-  }
-
-  .add-btn:hover {
-    background-color: #35a35e;
-    transform: scale(1.05);
-  }
-
-  .remove-btn {
-    background-color: #ff4d4f;
-    color: white;
-  }
-
-  .remove-btn:hover {
-    background-color: #d9363e;
-    transform: scale(1.05);
-  }
-
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Responsive Design */
-  @media (max-width: 480px) {
-    .container {
-      margin: 30px 10px;
-      padding: 25px 20px;
-    }
-
-    h2 {
-      font-size: 20px;
-    }
-
-    button[type="submit"] {
-      font-size: 15px;
-      padding: 12px;
-    }
-  }
-</style>
-
-</head>
-<body>
-  <div class="container">
-    <a href="dashboard" class="back-link">← Back to Dashboard</a>
-    <h2>Add Medicine</h2>
-    <form action="http://localhost:8080/healsync/AddMedicine" method="post">
-      
-      <label for="medicineName">Medicine Name</label>
-      <input type="text" id="medicineName" name="medicineName" placeholder="Add your Medicine Name">
-
-      <label for="startDate">Start Date</label>
-      <input type="date" id="startDate" name="startDate" required>
-
-      <label for="endDate">End Date</label>
-      <input type="date" id="endDate" name="endDate" required>
-
-      <label for="dosageCount">Number of Dosages per Day</label>
-      <input type="number" id="dosageCount" name="dosageCount" placeholder="Dose Per Day" min="1" max="6" required>
-
-      <label>Medicine Time</label>
-      <div id="timeFields">
-        <div class="time-field">
-          <input type="time" name="time[]" required>
-          <button type="button" class="add-btn" onclick="addTimeField()">+</button>
+        <label>Medicine Time</label>
+        <div id="timeFields">
+          <div class="time-field">
+            <input type="time" name="time[]" required />
+            <button type="button" class="add-btn" onclick="addTimeField()">
+              +
+            </button>
+          </div>
         </div>
-      </div>
 
-      <label for="reminderType">Reminder Type</label>
-      <select id="reminderType" name="reminderType" required>
-        <option value="">Select</option>
-        <option value="Notification">Notification</option>
-        
-      </select>
+        <label for="reminderType">Reminder Type</label>
+        <select id="reminderType" name="reminderType" required>
+          <option value="">Select</option>
+          <option value="Notification">Notification</option>
+        </select>
 
-      <label for="dosageInstructions">Dosage Instructions (Optional)</label>
-      <textarea id="dosageInstructions" name="dosageInstructions" rows="3" placeholder="e.g., Take after breakfast"></textarea>
+        <label for="dosageInstructions">Dosage Instructions (Optional)</label>
+        <textarea
+          id="dosageInstructions"
+          name="dosageInstructions"
+          rows="3"
+          placeholder="e.g., Take after breakfast"
+        ></textarea>
 
-      <button type="submit">Add Medicine</button>
-    </form>
-  </div>
+        <button type="submit">Add Medicine</button>
+      </form>
+    </div>
 
-  <script>
-  // ✅ Add time field function with max limit
-  function addTimeField() {
-    const container = document.getElementById("timeFields");
-    const existingFields = container.querySelectorAll('input[name="time[]"]').length;
+    <script>
+      // ✅ Add time field function with max limit
+      function addTimeField() {
+        const container = document.getElementById("timeFields");
+        const existingFields = container.querySelectorAll(
+          'input[name="time[]"]',
+        ).length;
 
-    if (existingFields >= 6) {
-      alert("Maximum 6 time slots allowed.");
-      return;
-    }
+        if (existingFields >= 6) {
+          alert("Maximum 6 time slots allowed.");
+          return;
+        }
 
-    const div = document.createElement("div");
-    div.className = "time-field";
-    div.innerHTML = `<input type="time" name="time[]" required>
+        const div = document.createElement("div");
+        div.className = "time-field";
+        div.innerHTML = `<input type="time" name="time[]" required>
                      <button type="button" class="remove-btn" onclick="removeTimeField(this)">&#10006;</button>`;
-    container.appendChild(div);
-  }
+        container.appendChild(div);
+      }
 
-  function removeTimeField(button) {
-    button.parentNode.remove();
-  }
+      function removeTimeField(button) {
+        button.parentNode.remove();
+      }
 
-  // ✅ Generate time slots automatically based on dosage count
-  document.getElementById("dosageCount").addEventListener("input", function () {
-    let count = parseInt(this.value) || 0;
+      // ✅ Generate time slots automatically based on dosage count
+      document
+        .getElementById("dosageCount")
+        .addEventListener("input", function () {
+          let count = parseInt(this.value) || 0;
 
-    if (count > 6) {
-      count = 6;
-      this.value = 6;
-      alert("Maximum allowed dosage count is 6.");
-    }
+          if (count > 6) {
+            count = 6;
+            this.value = 6;
+            alert("Maximum allowed dosage count is 6.");
+          }
 
-    const container = document.getElementById("timeFields");
-    container.innerHTML = ""; // clear old fields
+          const container = document.getElementById("timeFields");
+          container.innerHTML = ""; // clear old fields
 
-    for (let i = 1; i < count; i++) {
-      const div = document.createElement("div");
-      div.className = "time-field";
-      div.innerHTML = `<input type="time" name="time[]" required>
+          for (let i = 1; i < count; i++) {
+            const div = document.createElement("div");
+            div.className = "time-field";
+            div.innerHTML = `<input type="time" name="time[]" required>
                        <button type="button" class="remove-btn" onclick="removeTimeField(this)">&#10006;</button>`;
-      container.appendChild(div);
-    }
+            container.appendChild(div);
+          }
 
-    // ✅ Always include one "Add" button at the end
-    const addDiv = document.createElement("div");
-    addDiv.className = "time-field";
-    addDiv.innerHTML = `<input type="time" name="time[]" required>
+          // ✅ Always include one "Add" button at the end
+          const addDiv = document.createElement("div");
+          addDiv.className = "time-field";
+          addDiv.innerHTML = `<input type="time" name="time[]" required>
                         <button type="button" class="add-btn" onclick="addTimeField()">+</button>`;
-    container.appendChild(addDiv);
-  });
-  // ✅ Date validations (unchanged)
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const dd = String(today.getDate()).padStart(2, '0');
-  const formattedToday = `${yyyy}-${mm}-${dd}`;
+          container.appendChild(addDiv);
+        });
+      // ✅ Date validations (unchanged)
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const dd = String(today.getDate()).padStart(2, "0");
+      const formattedToday = `${yyyy}-${mm}-${dd}`;
 
-  const startDateInput = document.getElementById("startDate");
-  const endDateInput = document.getElementById("endDate");
+      const startDateInput = document.getElementById("startDate");
+      const endDateInput = document.getElementById("endDate");
 
-  startDateInput.setAttribute("min", formattedToday);
-  endDateInput.setAttribute("min", formattedToday);
+      startDateInput.setAttribute("min", formattedToday);
+      endDateInput.setAttribute("min", formattedToday);
 
-  document.querySelector("form").addEventListener("submit", function(event) {
-    const startDate = startDateInput.value;
-    const endDate = endDateInput.value;
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          const startDate = startDateInput.value;
+          const endDate = endDateInput.value;
 
-    if (startDate < formattedToday) {
-      alert("Start Date cannot be before today.");
-      startDateInput.focus();
-      event.preventDefault();
-      return;
-    }
+          if (startDate < formattedToday) {
+            alert("Start Date cannot be before today.");
+            startDateInput.focus();
+            event.preventDefault();
+            return;
+          }
 
-    if (endDate < startDate) {
-      alert("End Date cannot be before Start Date.");
-      endDateInput.focus();
-      event.preventDefault();
-      return;
-    }
-  });
-</script>
-
-</body>
+          if (endDate < startDate) {
+            alert("End Date cannot be before Start Date.");
+            endDateInput.focus();
+            event.preventDefault();
+            return;
+          }
+        });
+    </script>
+  </body>
 </html>

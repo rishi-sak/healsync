@@ -4,10 +4,10 @@
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-      <!-- 🔹 Register Servlet -->
+    <!-- Register -->
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>RegisterServlet</servlet-class>
+        <servlet-class>controller.RegisterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -15,92 +15,100 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
 
-      <!-- 🔹 Login Servlet -->
-  <servlet>
-    <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>LoginServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>LoginServlet</servlet-name>
-    <url-pattern>/login</url-pattern>
-  </servlet-mapping>
 
-      <!-- 🔹 AddMedicine -->
-  <servlet>
-    <servlet-name>AddMedicineServlet</servlet-name>
-    <servlet-class>AddMedicineServlet</servlet-class>
-  </servlet>
+    <!-- Login -->
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>controller.LoginServlet</servlet-class>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>AddMedicineServlet</servlet-name>
-    <url-pattern>/AddMedicine</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
+    </servlet-mapping>
 
-      <!-- 🔹 View Medicine -->
-<servlet>
-    <servlet-name>MyMedicinesServlet</servlet-name>
-    <servlet-class>MyMedicinesServlet</servlet-class>
-</servlet>
 
-<servlet-mapping>
-    <servlet-name>MyMedicinesServlet</servlet-name>
-    <url-pattern>/my_medicines</url-pattern>
-</servlet-mapping>
+    <!-- Add Medicine -->
+    <servlet>
+        <servlet-name>AddMedicineServlet</servlet-name>
+        <servlet-class>controller.AddMedicineServlet</servlet-class>
+    </servlet>
 
-<!-- 🔹 LogOut -->
-<servlet>
-    <servlet-name>LogoutServlet</servlet-name>
-    <servlet-class>LogoutServlet</servlet-class>
-</servlet>
+    <servlet-mapping>
+        <servlet-name>AddMedicineServlet</servlet-name>
+        <url-pattern>/AddMedicine</url-pattern>
+    </servlet-mapping>
 
-<servlet-mapping>
-    <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/logout</url-pattern>
-</servlet-mapping>
 
-<!-- 🔹 Dashboard -->
-<servlet>
-    <servlet-name>DashboardServlet</servlet-name>
-    <servlet-class>DashboardServlet</servlet-class>
-</servlet>
+    <!-- My Medicines -->
+    <servlet>
+        <servlet-name>MyMedicinesServlet</servlet-name>
+        <servlet-class>controller.MyMedicinesServlet</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>DashboardServlet</servlet-name>
-    <url-pattern>/dashboard</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyMedicinesServlet</servlet-name>
+        <url-pattern>/myMedicines</url-pattern>
+    </servlet-mapping>
 
-<!-- 🔹 DoseStatus -->
-<servlet>
-    <servlet-name>DoseServlet</servlet-name>
-    <servlet-class>DoseServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>DoseServlet</servlet-name>
-    <url-pattern>/DoseServlet</url-pattern>
-</servlet-mapping>
 
-<!-- 🔹 PdfReport -->
-<servlet>
-    <servlet-name>PdfReportServlet</servlet-name>
-    <servlet-class>PdfReportServlet</servlet-class>
-</servlet>
+    <!-- Logout -->
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>controller.LogoutServlet</servlet-class>
+    </servlet>
 
-<servlet-mapping>
-    <servlet-name>PdfReportServlet</servlet-name>
-    <url-pattern>/PdfReportServlet</url-pattern>
-</servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
 
-<!-- 🔹 DoseHistory  -->
-<servlet>
-    <servlet-name>DoseHistoryServlet</servlet-name>
-    <servlet-class>DoseHistoryServlet</servlet-class>
-</servlet>
 
-<servlet-mapping>
-    <servlet-name>DoseHistoryServlet</servlet-name>
-    <url-pattern>/DoseHistoryServlet</url-pattern>
-</servlet-mapping> 
+    <!-- Dashboard -->
+    <servlet>
+        <servlet-name>DashboardServlet</servlet-name>
+        <servlet-class>controller.DashboardServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DashboardServlet</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Dose Status -->
+    <servlet>
+        <servlet-name>DoseServlet</servlet-name>
+        <servlet-class>controller.DoseServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DoseServlet</servlet-name>
+        <url-pattern>/doseStatus</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- PDF Report -->
+    <servlet>
+        <servlet-name>PdfReportServlet</servlet-name>
+        <servlet-class>controller.PdfReportServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>PdfReportServlet</servlet-name>
+        <url-pattern>/pdfReport</url-pattern>
+    </servlet-mapping>
+
+
+    <!-- Dose History -->
+    <servlet>
+        <servlet-name>DoseHistoryServlet</servlet-name>
+        <servlet-class>controller.DoseHistoryServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>DoseHistoryServlet</servlet-name>
+        <url-pattern>/doseHistory</url-pattern>
+    </servlet-mapping>
 
 </web-app>
-

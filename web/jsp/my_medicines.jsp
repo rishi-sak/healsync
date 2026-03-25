@@ -21,14 +21,9 @@
 <html>
 <head>
     <title>My Medicines</title>
-        <style>
-        body { font-family: Arial; background: #f9f9f9; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { padding: 12px; border: 1px solid #ccc; text-align: center; }
-        th { background-color: #4CAF50; color: white; }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="my-medicines-page">
     <h2>My Medicine Schedule</h2>
     <table border="1">
         <tr>

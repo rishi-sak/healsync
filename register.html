@@ -1,129 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Register - HealSync</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - HealSync</title>
 
-  <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-    }
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="register-page">
+    <div class="register-form">
+      <div class="form-title">Register Yourself</div>
 
-    body {
-      background-color: #f5f7fa;
-      position: relative;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: url("images/healsync_logo.png"); 
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 300px;
-      opacity: 0.05;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .register-form {
-      position: relative;
-      z-index: 1;
-      max-width: 400px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .form-control {
-      border-radius: 10px;
-    }
-
-    .form-control:focus {
-      box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
-    }
-
-    .form-title {
-      font-size: 24px;
-      font-weight: bold;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .mb-3 {
-      font-weight: 500;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="register-form">
-    <div class="form-title">Register Yourself</div>
-
-    <form action="http://localhost:8080/healsync/register" method="post">
-      <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name" required />
-      </div>
-
-      <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your Email" required />
-      </div>
-
-      <div class="mb-3">
-        <label class="form-label">Role</label><br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="role" id="patient" value="Patient" required />
-          <label class="form-check-label" for="patient">Patient</label>
+      <form action="register" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Enter Your Name"
+            required
+          />
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="role" id="caregiver" value="Caregiver" />
-          <label class="form-check-label" for="caregiver">Caregiver</label>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter Your Email"
+            required
+          />
         </div>
-      </div>
 
-      <div class="mb-3">
-        <label for="password" class="form-label">Create Password</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="••••••••" required />
-      </div>
+        <div class="mb-3">
+          <label class="form-label">Role</label><br />
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="role"
+              id="patient"
+              value="Patient"
+              required
+            />
+            <label class="form-check-label" for="patient">Patient</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="role"
+              id="caregiver"
+              value="Caregiver"
+            />
+            <label class="form-check-label" for="caregiver">Caregiver</label>
+          </div>
+        </div>
 
-      <div class="form-check mb-3">
-        <input class="form-check-input" type="checkbox" onclick="togglePassword()" id="showPassword">
-        <label class="form-check-label" for="showPassword">Show Password</label>
-      </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Create Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="••••••••"
+            required
+          />
+        </div>
 
-      <div class="d-grid">
-        <button type="submit" class="btn btn-primary rounded-pill">Register</button>
-      </div>
+        <div class="form-check mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            onclick="togglePassword()"
+            id="showPassword"
+          />
+          <label class="form-check-label" for="showPassword"
+            >Show Password</label
+          >
+        </div>
 
-      <p class="text-center mt-3">
-        Already have an account? <a href="login.html">Login</a>
-      </p>
-    </form>
-  </div>
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary rounded-pill">
+            Register
+          </button>
+        </div>
 
-  <script>
-    function togglePassword() {
-      const passField = document.getElementById("password");
-      passField.type = passField.type === "password" ? "text" : "password";
-    }
-  </script>
+        <p class="text-center mt-3">
+          Already have an account? <a href="login.html">Login</a>
+        </p>
+      </form>
+    </div>
 
-</body>
+    <script>
+      function togglePassword() {
+        const passField = document.getElementById("password");
+        passField.type = passField.type === "password" ? "text" : "password";
+      }
+    </script>
+  </body>
 </html>

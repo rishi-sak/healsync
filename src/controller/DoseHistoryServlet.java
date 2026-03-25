@@ -1,11 +1,12 @@
+package controller;
+
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.*;
 import java.io.IOException;
 import java.sql.*;
 import java.util.*;
 
-@WebServlet("/DoseHistoryServlet")
+
 public class DoseHistoryServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,12 +50,12 @@ public class DoseHistoryServlet extends HttpServlet {
 
             // ✅ Correct query for dose_logs table
             String query = "SELECT medicine_name, med_time, status, event_date " +
-                           "FROM dose_logs " +
-                           "WHERE user_id = ? " +
-                           "ORDER BY event_date DESC";
+                    "FROM dose_logs " +
+                    "WHERE user_id = ? " +
+                    "ORDER BY event_date DESC";
 
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, userId);  // Integer binding
+            ps.setInt(1, userId); // Integer binding
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -76,6 +77,6 @@ public class DoseHistoryServlet extends HttpServlet {
 
         // ✅ Forward to JSP
         request.setAttribute("doseList", doseList);
-        request.getRequestDispatcher("doseHistory.jsp").forward(request, response);
+        request.getRequestDispatcher("web/jsp/doseHistory.jsp").forward(request, response);
     }
 }

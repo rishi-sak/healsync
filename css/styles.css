@@ -1,0 +1,707 @@
+/* ==========================================
+   HEALSYNC - Main Stylesheet
+   Organized & Cleaned for Easy Maintenance
+   ========================================== */
+
+/* ========== RESET & GLOBAL ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ========== HTML & BODY ========== */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f5f7fa;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: white;
+  color: black;
+  text-align: center;
+  padding: 0.75rem;
+}
+
+header img {
+  width: 200px;
+  height: auto;
+}
+
+header p {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* ========== PAGE-SPECIFIC BACKGROUNDS & LAYOUTS ========== */
+/* Register page watermark */
+body.register-page::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("images/healsync_logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px;
+  opacity: 0.05;
+  z-index: 0;
+  pointer-events: none;
+}
+
+body.register-page {
+  background-color: #f5f7fa;
+  position: relative;
+}
+
+/* Login page layout */
+body.login-page {
+  background: #f5f8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* Add Medicine page layout */
+body.add-medicine-page {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #e6f0ff, #f8faff);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+/* Dose History page layout */
+body.dosehistory-page {
+  font-family: "Poppins", sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 40px 20px;
+}
+
+/* My Medicines page layout */
+body.my-medicines-page {
+  font-family: Arial;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+/* Dashboard layout */
+body.dashboard-page {
+  display: flex;
+  height: 100vh;
+  background: #f5f7fa;
+}
+
+body.dashboard-page .container {
+  all: unset;
+  width: auto;
+  background: auto;
+  padding: auto;
+  border-radius: auto;
+  box-shadow: none;
+  margin-top: auto;
+}
+
+/* ========== CONTAINERS ========== */
+.container {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+body.add-medicine-page .container {
+  width: 90%;
+  max-width: 500px;
+  background: #ffffff;
+  margin-top: 60px;
+  padding: 30px 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Register form styling */
+.register-form {
+  position: relative;
+  z-index: 1;
+  max-width: 400px;
+  margin: 60px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ========== HEADINGS ========== */
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+body.add-medicine-page h2 {
+  text-align: center;
+  color: #1e2a55;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.main .header {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* ========== SIDEBAR & NAVIGATION ========== */
+.sidebar {
+  width: 250px;
+  background: #313a46;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  height: 100vh;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo svg {
+  width: 28px;
+  height: 28px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 10px 0;
+  transition: 0.3s;
+  display: block;
+}
+
+.nav a:hover {
+  color: #00c6ad;
+}
+
+/* ========== MAIN CONTENT AREA ========== */
+.main {
+  flex: 1;
+  padding: 30px;
+  margin-left: 250px;
+}
+
+/* ========== FORMS & INPUTS ========== */
+label {
+  display: block;
+  margin: 12px 0 6px;
+  font-weight: 600;
+  color: #2f3b66;
+}
+
+.container label {
+  margin: 0;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.container input[type="email"],
+.container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+/* Add Medicine inputs */
+body.add-medicine-page input,
+body.add-medicine-page select,
+body.add-medicine-page textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #c9d3e0;
+  background: #f8fbff;
+  outline: none;
+  font-size: 15px;
+}
+
+body.add-medicine-page input:focus,
+body.add-medicine-page select:focus,
+body.add-medicine-page textarea:focus {
+  border-color: #4a6cf7;
+  background: #ffffff;
+  box-shadow: 0 0 5px rgba(74, 108, 247, 0.2);
+}
+
+/* My medicines table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table th,
+table td {
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Time field layout */
+.time-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.time-field input[type="time"] {
+  flex: 1;
+  background: #f8fbff;
+}
+
+/* Form controls for Bootstrap integration */
+.form-control {
+  border-radius: 10px;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.mb-3 {
+  font-weight: 500;
+}
+
+/* ========== BUTTONS & INTERACTIVE ELEMENTS ========== */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btn {
+  display: inline-block;
+  width: auto;
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 24px;
+  cursor: pointer;
+}
+
+.container .btn {
+  width: 100%;
+}
+
+.btn:hover {
+  background: #0056d2;
+}
+
+/* Submit button styling */
+body.add-medicine-page button[type="submit"] {
+  background: linear-gradient(135deg, #4a6cf7, #0052cc);
+  color: white;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+}
+
+body.add-medicine-page button[type="submit"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(74, 108, 247, 0.3);
+}
+
+/* Add/Remove buttons */
+.add-btn,
+.remove-btn {
+  border: none;
+  padding: 6px 12px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 8px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.add-btn {
+  background-color: #3dbb6d;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background-color: #35a35e;
+  transform: scale(1.05);
+}
+
+.remove-btn {
+  background-color: #ff4d4f;
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #d9363e;
+  transform: scale(1.05);
+}
+
+/* Dashboard buttons */
+.btn-taken {
+  background: #28a745;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.btn-skip {
+  background: #dc3545;
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+/* Custom buttons */
+.btn-custom {
+  display: inline-block;
+  padding: 10px 18px;
+  background: #0078ff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.btn-custom:hover {
+  background: #005fcc;
+}
+
+/* Back links */
+.back-link {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: #4a6cf7;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #003d99;
+  text-decoration: underline;
+}
+
+.back-btn {
+  display: block;
+  text-align: center;
+  margin: 30px auto;
+  width: fit-content;
+  padding: 10px 20px;
+  background: #0078ff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.back-btn:hover {
+  background: #005fcc;
+}
+
+/* Footer styling */
+.footer {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* ========== CARDS & GRID ========== */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card-link:hover .card {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Dose history cards */
+.dose-container {
+  max-width: 900px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.dose-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.dose-card:hover {
+  transform: translateY(-5px);
+}
+
+.dose-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.dose-info {
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+}
+
+/* ========== MEDICINE REMINDERS & LISTS ========== */
+.medicine-reminders {
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.medicine-reminders h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#medicine-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#medicine-list li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.missed-doses {
+  margin-top: 40px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.missed-doses h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #c00;
+}
+
+.missed-doses ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.missed-doses li {
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+/* ========== STATUS STYLING ========== */
+.status-taken {
+  color: green;
+  font-weight: bold;
+}
+
+.status-skipped {
+  color: red;
+  font-weight: bold;
+}
+
+.status-missed {
+  color: rgb(26, 33, 230);
+  font-weight: bold;
+}
+
+.status {
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+  color: white;
+}
+
+.status.taken {
+  background: #2ecc71;
+}
+
+.status.missed {
+  background: #e74c3c;
+}
+
+.status.skipped {
+  background: #f39c12;
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 500px) {
+  body.my-medicines-page {
+    padding: 20px 10px;
+  }
+
+  .dose-container {
+    grid-template-columns: 1fr;
+  }
+
+  body.dosehistory-page {
+    padding: 20px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body.add-medicine-page .container {
+    margin: 30px 10px;
+    padding: 25px 20px;
+  }
+
+  body.add-medicine-page h2 {
+    font-size: 20px;
+  }
+
+  body.add-medicine-page button[type="submit"] {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
