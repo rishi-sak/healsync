@@ -4,7 +4,6 @@ HealSync is a desktop-based medicine reminder system designed to help users sche
 
 The system also tracks missed doses and generates reports to help monitor medicine adherence.
 
-
 ## Features
 
 - User Registration and Login
@@ -15,7 +14,6 @@ The system also tracks missed doses and generates reports to help monitor medici
 - PDF Report Generation
 - Simple and user-friendly interface
 
-
 ## Technologies Used
 
 - Backend: Java, Java Servlets, JSP
@@ -24,87 +22,92 @@ The system also tracks missed doses and generates reports to help monitor medici
 - Server: Apache Tomcat
 - Libraries: JSTL, iText PDF etc..
 
-
 ## Project Structure
 
 healsync/
 │
-├── css/                        # Stylesheets for UI design
-├── images/                     # Image assets
-├── screenshots/                # Screenshots for README/demo
-├── sounds/                     # Alarm/notification sounds
+├── css/ # Stylesheets for UI design
+├── images/ # Image assets
+├── screenshots/ # Screenshots for README/demo
+├── sounds/ # Alarm/notification sounds
 │
-├── database/                   # Database-related files
-│   └── database_schema.sql     # Complete SQL schema
+├── database/ # Database-related files
+│ └── database_schema.sql # Complete SQL schema
 │
-├── model/                      # Java model classes (POJOs)
-│   └── Medicine.java
+├── model/ # Java model classes (POJOs)
+│ └── Medicine.java
 │
 ├── src/
-│   └── controller/             # Servlet controllers (business logic)
-│       ├── AddMedicineServlet.java
-│       ├── DashboardServlet.java
-│       ├── DoseHistoryServlet.java
-│       ├── DoseServlet.java
-│       ├── LoginServlet.java
-│       ├── LogoutServlet.java
-│       ├── MyMedicinesServlet.java
-│       ├── PdfReportServlet.java
-│       └── RegisterServlet.java
+│ └── controller/ # Servlet controllers (business logic)
+│ ├── AddMedicineServlet.java
+│ ├── DashboardServlet.java
+│ ├── DoseHistoryServlet.java
+│ ├── DoseServlet.java
+│ ├── LoginServlet.java
+│ ├── LogoutServlet.java
+│ ├── MyMedicinesServlet.java
+│ ├── PdfReportServlet.java
+│ └── RegisterServlet.java
 │
 ├── web/
-│   └── jsp/                    # JSP files (dynamic views)
-│       ├── dashboard.jsp
-│       ├── doseHistory.jsp
-│       └── my_medicines.jsp
+│ └── jsp/ # JSP files (dynamic views)
+│ ├── dashboard.jsp
+│ ├── doseHistory.jsp
+│ └── my_medicines.jsp
 │
 ├── WEB-INF/
-│   ├── classes/                # Compiled Java classes
-│   ├── lib/                    # External libraries (JARs)
-│   │   ├── itextpdf-5.5.13.3.jar
-│   │   ├── jakarta.servlet.jsp.jstl-2.0.0.jar
-│   │   ├── jakarta.servlet.jsp.jstl-api-2.0.0.jar
-│   │   └── javax.servlet-api-4.0.1.jar
-│   └── web.xml                 # Deployment descriptor
+│ ├── classes/ # Compiled Java classes
+│ ├── lib/ # External libraries (JARs)
+│ │ ├── itextpdf-5.5.13.3.jar
+│ │ ├── jakarta.servlet.jsp.jstl-2.0.0.jar
+│ │ ├── jakarta.servlet.jsp.jstl-api-2.0.0.jar
+│ │ └── javax.servlet-api-4.0.1.jar
+│ └── web.xml # Deployment descriptor
 │
-├── AddMedicine.html            # Add medicine page
-├── index.html                  # Landing page
-├── login.html                  # Login page
-├── register.html               # Registration page
-├── success.html                # Success page
-├── error.html                  # Error page
+├── AddMedicine.html # Add medicine page
+├── index.html # Landing page
+├── login.html # Login page
+├── register.html # Registration page
+├── success.html # Success page
+├── error.html # Error page
 │
-├── META-INF/                   # Deployment metadata (auto-generated)
+├── META-INF/ # Deployment metadata (auto-generated)
 │
-└── README.md                   # Project documentation
-
+└── README.md # Project documentation
 
 ## 📸 Screenshots
 
 ### 🏠 Home Screen
+
 ![Home Screen](screenshots/HomeScreen.png)
 
 ### 🔐 Login Page
+
 ![Login](screenshots/login.png)
 
 ### 📝 Add Medicine Form
+
 ![Add Medicine](screenshots/AddMedicineForm.png)
 
 ### 📊 Dashboard
+
 ![Dashboard](screenshots/Dashboard.png)
 
 ### 💊 My Medicines
+
 ![My Medicines](screenshots/My_Medicines.png)
 
 ### 📜 Dose History
+
 ![Dose History](screenshots/Dose_history.png)
 
 ### 🔔 Notification Alarm
+
 ![Notification Alarm](screenshots/Notification_alarm.png)
 
 ### 📄 PDF Report
-![PDF Report](screenshots/pdfReport.png)
 
+![PDF Report](screenshots/pdfReport.png)
 
 ## ⚙️ How to Run the Project
 
@@ -117,18 +120,21 @@ Make sure you have the following installed:
 - MySQL Server
 - Any IDE (VS Code / Eclipse / IntelliJ)
 
-
 ### 🗄️ Step 1: Setup Database
 
 1. Open MySQL
 2. Create database:
 
-```sql
-CREATE DATABASE healsync_db;   
-USE healsync_db;
+   ```sql
+   CREATE DATABASE healsync_db;
+   USE healsync_db;
+   ```
 
-3. Run the schema file: 
-# SOURCE database/database_schema.sql;
+3. Run the schema file:
+
+   ```sql
+   SOURCE database/database_schema.sql;
+   ```
 
 ### ⚙️ Step 2: Configure Apache Tomcat Server
 
@@ -145,7 +151,6 @@ https://tomcat.apache.org/
 
 If Tomcat is running, you will see the Tomcat homepage ✅
 
-
 ### 🔗 Step 3: Configure Project in Tomcat
 
 Option 1: Manual Deployment (Recommended)
@@ -156,51 +161,51 @@ Option 1: Manual Deployment (Recommended)
 - Make sure structure looks like: webapps/healsync/
 
 ▶️ Step 4: Start the Server
+
 - Go to: apache-tomcat/bin/
 - Run: startup.bat
-
 
 🌐 Step 5: Run the Application
 
 Open browser and go to: http://localhost:8080/healsync or http://localhost:8080/healsync/index.html
 
-Option 2: ## ⚙️ Deployment Using WAR File 
+## ⚙️ Deployment Using WAR File
 
 This method uses a **WAR (Web Application Archive)** file, which is the standard way of deploying Java web applications.
 
 ### 📦 Step 1: Create WAR File
 
 #### 👉 Method 1: Using IDE (Recommended)
-- Right-click on project  
-- Select **Export → WAR file**  
+
+- Right-click on project
+- Select **Export → WAR file**
 - Save as: "healsync.war"
 
 #### 👉 Method 2: Manual (Without IDE)
+
 - Ensure your project structure is correct
 - Compress the project folder
 - Rename the file:
 - healsync.zip → healsync.war
 
 ### 📂 Step 2: Deploy WAR File in Tomcat
+
 - Copy the WAR file
 - Paste it into: apache-tomcat/webapps/
-
 
 ### ▶️ Step 3: Start Tomcat Server
 
 - Go to: apache-tomcat/bin/
 - Run: startup.bat
 
-
 ### ⚡ Step 4: Automatic Deployment
+
 - Tomcat will automatically extract the WAR file
 - A folder will be created: webapps/healsync/
-
 
 ### 🌐 Step 5: Run the Application
 
 Open your browser and visit: http://localhost:8080/healsync or http://localhost:8080/healsync/index.html
-
 
 ## 🎯 Conclusion
 
