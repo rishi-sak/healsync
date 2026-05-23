@@ -93,8 +93,9 @@ body.add-medicine-page {
   padding: 0;
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   min-height: 100vh;
+  overflow: hidden;
 }
 
 /* Dose History page layout */
@@ -142,11 +143,15 @@ body.add-medicine-page .container {
   width: 90%;
   max-width: 500px;
   background: #ffffff;
-  margin-top: 60px;
+  margin: 0;
+  height: 100vh;
   padding: 30px 25px;
   border-radius: 14px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   animation: fadeIn 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Register form styling */
